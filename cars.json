@@ -1,11 +1,9 @@
-{
-    "cars": [
-        {"name": "Batmobile", "make": "Wayne Industries", "expiry": "2025-01-11T14:05:00+08:00"},
-        {"name": "Mach Five", "make": "Mifune Motors", "expiry": "2025-01-10T08:00:00+08:00"},
-        {"name": "Chief's Warthog", "make": "AMG Transport Dynamics", "expiry": "2025-01-12T15:45:00+08:00"},
-        {"name": "Invisible Boatmobile", "make": "Bikini Motors", "expiry": "2025-01-12T02:25:00+08:00"},
-        {"name": "Doc's DeLorean", "make": "DeLorean Motor Company", "expiry": "2025-01-10T23:59:59+08:00"},
-        {"name": "Brum", "make": "Austin Motor Company", "expiry": "2025-01-11T10:30:00+08:00"},
-        {"name": "Lightning McQueen", "make": "Chevrolet", "expiry": "2025-01-13T18:50cd :00+08:00"}
-    ]
-}
+[
+    {"name": "Batmobile", "make": "Wayne Industries", "expiry": "2025-01-14T14:05:00+08:00"},
+    {"name": "Mach Five", "make": "Mifune Motors", "expiry": "2025-01-10T08:00:00+08:00"},
+    {"name": "Chief's Warthog", "make": "AMG Transport Dynamics", "expiry": "2025-01-12T15:45:00+08:00"},
+    {"name": "Invisible Boatmobile", "make": "Bikini Motors", "expiry": "2025-01-12T02:25:00+08:00"},
+    {"name": "Doc's DeLorean", "make": "DeLorean Motor Company", "expiry": "2025-01-15T23:59:59+08:00"},
+    {"name": "Brum", "make": "Austin Motor Company", "expiry": "2025-01-11T10:30:00+08:00"},
+    {"name": "Lightning McQueen", "make": "Chevrolet", "expiry": "2025-01-13T18:50:00+08:00"}
+]
