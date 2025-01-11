@@ -8,7 +8,7 @@ import { Car } from '../car';
   template: `
     <h1>Select make to view: <input class="makeInput" type=text></h1>
     <table>
-      <app-car></app-car>
+      <app-car *ngfor="let car of carsList" [car]="car"></app-car>
     </table>
   `,
   styleUrl: './cars-table.component.css'
