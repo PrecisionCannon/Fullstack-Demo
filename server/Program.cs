@@ -34,7 +34,7 @@ namespace FullstackDemo{
             app.MapGet("/api/listcars", ListCars);
             app.Run("http://localhost:1440");
         }
-        private string ListCars(string make){
+        private string ListCars(string make = ""){
             List<Car> tempCars = new List<Car>(_cars);
             if (make != ""){
                 tempCars = tempCars.Where(car => car.make.Equals(make)).ToList();
