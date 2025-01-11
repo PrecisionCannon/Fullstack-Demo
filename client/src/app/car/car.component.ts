@@ -1,9 +1,10 @@
 import { Component, input, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Car } from '../car';
 
 @Component({
   selector: 'app-car',
-  imports: [],
+  imports: [CommonModule],
   template: `
     <tr>
       <th>Name: {{car.name}}</th>
@@ -14,5 +15,5 @@ import { Car } from '../car';
   styleUrl: './car.component.css'
 })
 export class CarComponent {
-  @Input() car!:Car;
+  @Input() car!: Car;
 }
