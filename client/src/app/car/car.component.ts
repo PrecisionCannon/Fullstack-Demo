@@ -7,9 +7,9 @@ import { Car } from '../car';
   imports: [CommonModule],
   template: `
     <tr>
-      <th>Name: {{car.name}}</th>
-      <th>Make: {{car.make}}</th>
-      <th>Expiry: {{car.expiry}}</th>
+      <td>{{car.name}}</td>
+      <td>{{car.make}}</td>
+      <td>{{car.expiry}}</td>
     </tr>
   `,
   styleUrl: './car.component.css'
