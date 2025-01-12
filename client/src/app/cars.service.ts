@@ -8,11 +8,10 @@ export class CarsService {
   
   constructor() { }
 
-  carsServiceUrl: string = "http://localhost:1440/api/listcars"
+  carsServiceUrl = "http://localhost:1440/api/listcars"
 
-  async getCarsList(make: string): Promise<Car[]> {
-    const requestURL: string = this.carsServiceUrl + "?make=" + encodeURIComponent(make);
-    const data = await fetch(requestURL);
+  async getCarsList(): Promise<Car[]> {
+    const data = await fetch(this.carsServiceUrl);
     return await data.json() ?? [];
   }
 }

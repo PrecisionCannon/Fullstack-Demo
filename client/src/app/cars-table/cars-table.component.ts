@@ -1,57 +1,33 @@
-import { Component, DoCheck, inject, ChangeDetectorRef, ChangeDetectionStrategy, NgZone } from '@angular/core';
-import { CommonModule, NgFor } from '@angular/common';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { CarComponent } from '../car/car.component';
 import { Car } from '../car';
 import { CarsService } from '../cars.service';
 
 @Component({
   selector: 'app-cars-table',
-  imports: [CommonModule, ReactiveFormsModule, CarComponent],
+  imports: [CommonModule, CarComponent],
   template: `
-    <h1>Select make to view: <input class="makeInput" type="text"></h1>
+    <h1>Select make to view: <input class="makeInput" type=text></h1>
     <table>
       <tr>
         <th>Name</th>
         <th>Make</th>
         <th>Expiry</th>
       </tr>
-      <app-car *ngFor="let car of carsList; trackBy: identifyCar" [car]="car"></app-car>
+      <app-car *ngFor="let car of carsList" [car]="car"></app-car>
     </table>
   `,
-  styleUrl: './cars-table.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './cars-table.component.css'
 })
-export class CarsTableComponent implements DoCheck {
-  carsService: CarsService = inject(CarsService);
+export class CarsTableComponent {
   carsList: Car[] = [];
-  make: string = "";
-  cdr: ChangeDetectorRef;
-  zone: NgZone;
+  carsService: CarsService = inject(CarsService);
 
-  constructor(cdr: ChangeDetectorRef, zone: NgZone) {
-    this.cdr = cdr;
-    this.zone = zone;
-    this.carsService.getCarsList(this.make).then((carsList: Car[]) => {
-      this.zone.run(() => {
-        this.carsList = carsList;
-        this.ngDoCheck();
-        this.cdr.markForCheck(); 
-        console.log("Instructing angular to check for changes");
-      });
-    });
-    this.zone.run(() => {
-      this.cdr.markForCheck();
-      console.log("Instructing angular to check for changes");
+  constructor() {
+    this.carsService.getCarsList().then((carsList: Car[]) => {
+      this.carsList = carsList;
     });
   }
-
-  ngDoCheck(): void {
-    //console.log(this.carsList);
-  }
-
-  identifyCar(index: number, car: Car){
-    console.log("NgFor is Checking for changes in carsList");
-    return car.name;  
-  }
+  
 }
