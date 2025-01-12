@@ -4,7 +4,7 @@ import { CarsTableComponent} from './cars-table/cars-table.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CarsTableComponent],
+  imports: [CarsTableComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
