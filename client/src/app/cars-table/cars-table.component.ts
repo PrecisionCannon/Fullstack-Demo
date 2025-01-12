@@ -9,7 +9,7 @@ import { CarsService } from '../cars.service';
   selector: 'app-cars-table',
   imports: [CommonModule, FormsModule, CarComponent],
   template: `
-    <h1>Select make to view: <input class="makeInput" type=text name="make" [(ngModel)]="make" (ngModelChange)="onMakeChange()">{{make}}</h1>
+    <h1>Select make to view: <input class="makeInput" type=text name="make" [(ngModel)]="make" (ngModelChange)="onMakeChange()"></h1>
     <table>
       <thead>
         <tr>

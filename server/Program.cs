@@ -43,7 +43,7 @@ namespace FullstackDemo{
         private string ListCars(string make = ""){
             List<Car> tempCars = new List<Car>(_cars);
             if (make != ""){
-                tempCars = tempCars.Where(car => car.make.Equals(make)).ToList();
+                tempCars = tempCars.Where(car => car.make.Contains(make)).ToList();
             }
 
             return JsonSerializer.Serialize(tempCars);
