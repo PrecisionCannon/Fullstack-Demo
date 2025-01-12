@@ -29,8 +29,14 @@ namespace FullstackDemo{
         }
         public void Run(){
             var builder = WebApplication.CreateBuilder();
+            builder.Services.AddCors(options => {
+                options.AddDefaultPolicy(policy => {
+                    policy.AllowAnyOrigin();
+                });
+            });
             var app = builder.Build();
 
+            app.UseCors();
             app.MapGet("/api/listcars", ListCars);
             app.Run("http://localhost:1440");
         }
