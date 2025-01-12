@@ -1,14 +1,15 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 import { CarComponent } from '../car/car.component';
 import { Car } from '../car';
 import { CarsService } from '../cars.service';
 
 @Component({
   selector: 'app-cars-table',
-  imports: [CommonModule, CarComponent],
+  imports: [CommonModule, FormsModule, CarComponent],
   template: `
-    <h1>Select make to view: <input class="makeInput" type=text></h1>
+    <h1>Select make to view: <input class="makeInput" type=text name="make" [(ngModel)]="make" (ngModelChange)="onMakeChange()">{{make}}</h1>
     <table>
       <thead>
         <tr>
@@ -30,9 +31,16 @@ export class CarsTableComponent {
   make: string = "";
 
   constructor() {
+    this.updateCarsList();
+  }
+  
+  onMakeChange(){
+    this.updateCarsList();
+  }
+
+  updateCarsList(){
     this.carsService.getCarsList(this.make).then((carsList: Car[]) => {
       this.carsList = carsList;
     });
   }
-  
 }
