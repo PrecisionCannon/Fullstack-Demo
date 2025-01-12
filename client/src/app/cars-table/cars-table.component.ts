@@ -10,12 +10,16 @@ import { CarsService } from '../cars.service';
   template: `
     <h1>Select make to view: <input class="makeInput" type=text></h1>
     <table>
-      <tr>
-        <th>Name</th>
-        <th>Make</th>
-        <th>Expiry</th>
-      </tr>
-      <app-car *ngFor="let car of carsList" [car]="car"></app-car>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Make</th>
+          <th>Expiry</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of carsList" app-car [car]="car"></tr>
+      </tbody>
     </table>
   `,
   styleUrl: './cars-table.component.css'

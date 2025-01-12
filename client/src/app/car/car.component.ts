@@ -3,14 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Car } from '../car';
 
 @Component({
-  selector: 'app-car',
+  selector: 'tr[app-car]',
   imports: [CommonModule],
   template: `
-    <tr>
-      <td>{{car.name}}</td>
-      <td>{{car.make}}</td>
-      <td>{{car.expiry}}</td>
-    </tr>
+    <td>{{car.name}}</td>
+    <td>{{car.make}}</td>
+    <td>{{car.expiry}}</td>
   `,
   styleUrl: './car.component.css'
 })
