@@ -17,7 +17,7 @@ import { CarsService } from '../cars.service';
           <th>Expiry</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody> 
         <tr *ngFor="let car of carsList" app-car [car]="car"></tr>
       </tbody>
     </table>
@@ -25,11 +25,12 @@ import { CarsService } from '../cars.service';
   styleUrl: './cars-table.component.css'
 })
 export class CarsTableComponent {
-  carsList: Car[] = [];
   carsService: CarsService = inject(CarsService);
+  carsList: Car[] = [];
+  make: string = "";
 
   constructor() {
-    this.carsService.getCarsList().then((carsList: Car[]) => {
+    this.carsService.getCarsList(this.make).then((carsList: Car[]) => {
       this.carsList = carsList;
     });
   }
