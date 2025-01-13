@@ -1,9 +1,16 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using registrationService;
 
 FullstackDemo.CarsService server = new FullstackDemo.CarsService("../cars.json");
 server.Run();
+
+var builder = Host.CreateApplicationBuilder(args);
+builder.Services.AddHostedService<Worker>();
+
+var host = builder.Build();
+host.Run();
 
 namespace FullstackDemo{
     class Car{
